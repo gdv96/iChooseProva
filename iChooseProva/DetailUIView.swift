@@ -5,16 +5,24 @@
 //  Created by devannogiovanni on 13/10/21.
 //
 
-import SwiftUI
+/*import SwiftUI
 
 struct DetailUIView: View {
+    var news: News
     var body: some View {
-     Text("Hello world")
+        VStack{
+            Text(news.title)
+            Image(news.imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            
+        }
     }
+
 }
 
 struct DetailUIView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailUIView()
+        DetailUIView(news: News(title: "per preview", subTitle: "" ,author: "", imageName: "mensa"))
     }
-}
+}*/

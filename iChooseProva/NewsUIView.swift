@@ -7,9 +7,23 @@
 
 import SwiftUI
 
+struct cardNews: Identifiable{
+    var title: String
+    var subTitle: String
+    var author: String
+    var imageName: String
+    var id = UUID()
+}
+
+var cardsNews = [
+    cardNews(title: "20/07/2021", subTitle: "Mensa anno scolastico 2021/2022, domani al via le iscrizioni al servizio", author: "Domani al via le iscrizioni online al servizio mensa per l’anno scolastico 2021/2022. ", imageName: "mensa"),
+    cardNews(title: "19/07/21", subTitle: "Il 20 luglio farà tappa a Benevento la staffetta “Obiettivo Tricolore” promossa da Alex Zanardi", author: "Domani (20 luglio) farà tappa a Benevento la staffetta “Obiettivo Tricolore”", imageName: "zanardi")
+    
+]
+
 struct NewsUIView: View {
     
-    init() {
+    /*init() {
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemRed, .font: UIFont(name: "ArialRoundedMTBold", size: 35)!]
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemRed, .
@@ -22,7 +36,7 @@ struct NewsUIView: View {
         transitionMaskImage: UIImage(systemName: "arrow.turn.up.left"))
 
         UINavigationBar.appearance().tintColor = .black
-    }
+    }*/
     
     var body: some View {
         
@@ -31,16 +45,26 @@ struct NewsUIView: View {
                 ScrollView(.vertical, showsIndicators: false){
                     VStack{
                         Group{
-                    CardView(title: "20/07/2021", subTitle: "Mensa anno scolastico 2021/2022, domani al via le iscrizioni al servizio", author: "Domani al via le iscrizioni online al servizio mensa per l’anno scolastico 2021/2022. ", imageName: "mensa")
-                    CardView(title: "19/07/21", subTitle: "Il 20 luglio farà tappa a Benevento la staffetta “Obiettivo Tricolore” promossa da Alex Zanardi", author: "Domani (20 luglio) farà tappa a Benevento la staffetta “Obiettivo Tricolore”", imageName: "zanardi")
-                    CardView(title: "19/07/21", subTitle: "Il 20 luglio farà tappa a Benevento la staffetta “Obiettivo Tricolore” promossa da Alex Zanardi", author: "Domani (20 luglio) farà tappa a Benevento la staffetta “Obiettivo Tricolore”", imageName: "interruzioneIdrica")
-                    CardView(title: "19/07/21", subTitle: "Il 20 luglio farà tappa a Benevento la staffetta “Obiettivo Tricolore” promossa da Alex Zanardi", author: "Domani (20 luglio) farà tappa a Benevento la staffetta “Obiettivo Tricolore”", imageName: "interruzioneIdrica")
-                        }.frame(width:300)
+                            ForEach(cardsNews) { cardsnews in
+                                /*NavigationLink(destination: DetailUIView(news: news)) {
+                                    CardView(news: news)
+                                }*/
+                                ZStack {
+                                    //CardView(news: news)
+                                   NavigationLink(destination:
+                                   PresentationUIView()) {
+                                        EmptyView()
+                                        CardView(cardsnews: cardsnews)
+                                    }
+                                    
+                                }
+                            }
+                        }.frame(width: 350)
                             .minimumScaleFactor(0.5)
                     }
                     Spacer()
                 }.navigationBarTitle("Notizie", displayMode:.automatic)
-            //}
+            
             }
     }
 }
@@ -52,28 +76,28 @@ struct NewsUIView_Previews: PreviewProvider {
 }
 
 struct CardView: View {
-    var title: String
-    var subTitle: String
-    var author: String
-    var imageName: String
+    
+    var cardsnews: cardNews
     var body: some View {
+    
         VStack{
-            Image(imageName)
+            Image(cardsnews.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
         HStack{
             VStack(alignment: .leading){
-                Text(title)
+                Text(cardsnews.title)
                     .font(.headline)
                     .foregroundColor(.gray)
-                Text(subTitle)
+                Text(cardsnews.subTitle)
                     .font(.title)
                     .fontWeight(.black)
                     .foregroundColor(.primary)
                     .lineLimit(3)
-                Text(author)
+                Text(cardsnews.author)
                     .font(.caption)
                     .foregroundColor(.secondary)
+               
             }
             Spacer()
         }.padding()
