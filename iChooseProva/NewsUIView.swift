@@ -134,6 +134,9 @@ struct CardView: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.leading)
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                    Image(systemName: "square.and.arrow.up")
+                }
                
             }
             Spacer()
