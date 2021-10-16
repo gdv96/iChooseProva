@@ -22,6 +22,8 @@ var cardsNews = [
     
 ]
 
+
+
 struct NewsUIView: View {
     
     /*init() {
@@ -38,14 +40,14 @@ struct NewsUIView: View {
 
         UINavigationBar.appearance().tintColor = .black
     }*/
-    
+    @State private var searchText = ""
     var body: some View {
         
             NavigationView{
                 ScrollView(.vertical, showsIndicators: false){
                     VStack{
                        Group{
-                            ForEach(cardsNews) {cardsnews in
+                            ForEach(searchResults) {cardsnews in
                                 NavigationLink(destination: DetailView(titleDetail: cardsnews.subTitle, testoCompleto: cardsnews.testo, imageDetail: cardsnews.imageName)) {
                                     CardView(cardsnews: cardsnews)
                                 }
@@ -69,7 +71,21 @@ struct NewsUIView: View {
                     Spacer()
                 }.navigationBarTitle("Notizie", displayMode:.automatic)
             
-            }
+            }.searchable(text: $searchText)
+    }
+    
+    var searchResults: [cardNews]{
+        if searchText.isEmpty{
+            return cardsNews
+        } else {
+            return cardsNews.filter{(cardsnews: cardNews) in
+                return cardsnews.subTitle.localizedCaseInsensitiveContains(searchText)
+                
+        }
+    }
+        
+
+
     }
 }
 
@@ -134,6 +150,7 @@ struct CardView: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.leading)
+                
                
             }
             Spacer()
@@ -145,4 +162,3 @@ struct CardView: View {
             .padding([.top, .vertical ])
     }
 }
-
