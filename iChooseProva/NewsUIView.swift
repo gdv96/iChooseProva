@@ -66,13 +66,18 @@ struct NewsUIView: View {
                                    }
                                 }*/
                             }
+                        
                         }.frame(width: 350)
                          .minimumScaleFactor(0.5)
+                         
                     }
                     Spacer()
+                        
                 }.navigationBarTitle("Notizie", displayMode:.automatic)
             
             }.searchable(text: $searchText)
+            
+            
     }
     
     var searchResults: [cardNews]{

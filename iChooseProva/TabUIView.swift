@@ -12,23 +12,22 @@ struct TabUIView: View {
     var body: some View {
         TabView {
             
-            Text("Profilo tab")
+            Text("User tab")
                 .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem{
                     Image(systemName: "person")
-                    Text("Profilo")
+                    Text("User")
                 }
-            Text("Proposte Tab")
-                .font(.system(size:30, weight: .bold, design: .rounded))
+            PollsUIView()
                 .tabItem{
                     Image(systemName: "star")
-                    Text("Proposte")
+                    Text("Polls")
                 }
             
             NewsUIView()
                 .tabItem {
                     Image(systemName: "newspaper")
-                    Text("Notizie")
+                    Text("News")
                 }
                     }
     }
