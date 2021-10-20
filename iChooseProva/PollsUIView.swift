@@ -49,7 +49,7 @@ struct PollsUIView: View {
                                       Group{
                                           ForEach(searchResults) {pollOngoing in
                                               NavigationLink(destination: OngoingDetailNotUserUIView(poll: pollOngoing)) {
-                                                   CardViewOngoing(pollsOngoing: pollOngoing)
+                                                   CardViewOngoingUIView(pollsOngoing: pollOngoing)
                                                 }
                                                }
                                            }
@@ -62,7 +62,7 @@ struct PollsUIView: View {
                                       Group{
                                           ForEach(searchResults) {pollOngoing in
                                               NavigationLink(destination:OngoingDetailUserUIView(poll: pollOngoing)) {
-                                                   CardViewOngoing(pollsOngoing: pollOngoing)
+                                                   CardViewOngoingUIView(pollsOngoing: pollOngoing)
                                                 }
                                                }
                                            }
@@ -153,7 +153,7 @@ struct PollsUIView_Previews: PreviewProvider {
 
 //-----------------------------CardView------------------------------------
 
-struct CardViewOngoing: View {
+/*struct CardViewOngoing: View {
     
     var pollsOngoing: Poll
     var body: some View {
@@ -213,7 +213,7 @@ struct CardViewOngoing: View {
                         .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 5))
             .padding([.top, .vertical ])
     }
-}
+}*/
 
 struct CardViewExpired: View {
     

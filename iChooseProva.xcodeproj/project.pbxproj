@@ -12,6 +12,7 @@
 		FB117FEF2720224700E19329 /* OngoingDetailNotUserUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FEE2720224700E19329 /* OngoingDetailNotUserUIView.swift */; };
 		FB117FF12720248700E19329 /* ExpiredDetailUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FF02720248700E19329 /* ExpiredDetailUIView.swift */; };
 		FB117FF52720265700E19329 /* VotedDetailUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FF42720265700E19329 /* VotedDetailUIView.swift */; };
+		FB117FF72720AAD300E19329 /* CardViewOngoingUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FF62720AAD300E19329 /* CardViewOngoingUIView.swift */; };
 		FBA7E92927171F7200F6C4A5 /* iChooseProvaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */; };
 		FBA7E92B27171F7200F6C4A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E92A27171F7200F6C4A5 /* ContentView.swift */; };
 		FBA7E92D27171F7400F6C4A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBA7E92C27171F7400F6C4A5 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		FB117FEE2720224700E19329 /* OngoingDetailNotUserUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingDetailNotUserUIView.swift; sourceTree = "<group>"; };
 		FB117FF02720248700E19329 /* ExpiredDetailUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiredDetailUIView.swift; sourceTree = "<group>"; };
 		FB117FF42720265700E19329 /* VotedDetailUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotedDetailUIView.swift; sourceTree = "<group>"; };
+		FB117FF62720AAD300E19329 /* CardViewOngoingUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewOngoingUIView.swift; sourceTree = "<group>"; };
 		FBA7E92527171F7200F6C4A5 /* iChooseProva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChooseProva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iChooseProvaApp.swift; sourceTree = "<group>"; };
 		FBA7E92A27171F7200F6C4A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				FBBBFE62271D5D9400B019EB /* PollsUIView.swift */,
+				FB117FF62720AAD300E19329 /* CardViewOngoingUIView.swift */,
 				FB117FF02720248700E19329 /* ExpiredDetailUIView.swift */,
 				FB117FF42720265700E19329 /* VotedDetailUIView.swift */,
 				FB117FEE2720224700E19329 /* OngoingDetailNotUserUIView.swift */,
@@ -166,6 +169,7 @@
 				FB117FF12720248700E19329 /* ExpiredDetailUIView.swift in Sources */,
 				FB117FF52720265700E19329 /* VotedDetailUIView.swift in Sources */,
 				FBA7E92927171F7200F6C4A5 /* iChooseProvaApp.swift in Sources */,
+				FB117FF72720AAD300E19329 /* CardViewOngoingUIView.swift in Sources */,
 				FBBBFE63271D5D9400B019EB /* PollsUIView.swift in Sources */,
 				FBA7E9392717271A00F6C4A5 /* TabUIView.swift in Sources */,
 				FB117FEF2720224700E19329 /* OngoingDetailNotUserUIView.swift in Sources */,
