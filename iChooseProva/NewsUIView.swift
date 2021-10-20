@@ -24,23 +24,8 @@ var cardsNews = [
 ]
 
 
-
 struct NewsUIView: View {
     
-    /*init() {
-        let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemRed, .font: UIFont(name: "ArialRoundedMTBold", size: 35)!]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemRed, .
-        font: UIFont(name: "ArialRoundedMTBold", size: 20)!]
-        UINavigationBar.appearance().standardAppearance = navBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-        UINavigationBar.appearance().compactAppearance = navBarAppearance
-
-        navBarAppearance.setBackIndicatorImage(UIImage(systemName: "arrow.turn.up.left"),
-        transitionMaskImage: UIImage(systemName: "arrow.turn.up.left"))
-
-        UINavigationBar.appearance().tintColor = .black
-    }*/
     @State private var searchText = ""
     var body: some View {
         
@@ -53,18 +38,6 @@ struct NewsUIView: View {
                                     CardView(cardsnews: cardsnews)
                                 }
                             
-                                /*NavigationLink(destination: DetailUIView(news: news)) {
-                                    CardView(news: news)
-                                }*/
-                                /*ZStack{
-                                   CardView(cardsnews: cardsnews)
-                                   NavigationLink(destination:
-                                   PresentationUIView()) {
-                                        //CardView(cardsnews: cardsnews)
-                                        EmptyView()
-                                       
-                                   }
-                                }*/
                             }
                         
                         }.frame(width: 350)
@@ -168,9 +141,3 @@ struct CardView: View {
             .padding([.top, .vertical ])
     }
 }
-
-/*func actionSheet() {
-    guard let data = URL(string: "https://www.zoho.com") else { return }
-    let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-    UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
-}*/
