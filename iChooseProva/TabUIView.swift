@@ -11,7 +11,11 @@ struct TabUIView: View {
     
     var body: some View {
         TabView {
-            
+            /*if user.isLoggedIn {
+                homeNonUtenteUIView()
+            } else {
+                homeUtenteUIView()
+            }*/
             Text("User tab")
                 .font(.system(size: 30, weight: .bold, design: .rounded))
                 .tabItem{

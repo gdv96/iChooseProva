@@ -73,9 +73,10 @@ struct NewsUIView: View {
                     }
                     Spacer()
                         
-                }.navigationBarTitle("Notizie", displayMode:.automatic)
+                }.searchable(text: $searchText)
+                .navigationBarTitle("Notizie", displayMode:.automatic)
             
-            }.searchable(text: $searchText)
+            }
             
             
     }
@@ -157,7 +158,6 @@ struct CardView: View {
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.leading)
                 
-               
             }
             Spacer()
         }.padding()
@@ -168,3 +168,9 @@ struct CardView: View {
             .padding([.top, .vertical ])
     }
 }
+
+/*func actionSheet() {
+    guard let data = URL(string: "https://www.zoho.com") else { return }
+    let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+    UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
+}*/

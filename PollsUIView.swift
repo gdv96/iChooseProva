@@ -8,25 +8,35 @@
 import SwiftUI
 
 struct Poll: Identifiable{
-    var title: String
-    var subTitle: String
-    var date: String
-    var imageName: String
-    var testo: String
+    var titlePoll: String
+    var imageNamePoll: String
+    var textPoll: String
+    var remainingTime: String
+    var progressBar: Float
+    var numberVotes: Int
     var id = UUID()
 }
 
 var pollsOngoing = [
-    Poll(title:"01/10/21", subTitle:"Nuovo ponte sul torrente Epitaffio,a breve l’appalto per l’assegnazione dei lavori", date:"", imageName:"ponteepitaffio", testo: "L’Ufficio Espropri, con riferimento ai lavori di realizzazione del nuovo ponte sul torrente Epitaffio (che collega la via Appia con la chiesa di S. Anna), rende noto che lo scorso 23 settembre sono state avviate le azioni di presa di possesso dei terreni e che le suddette azioni si concluderanno la prossima settimana.Esaurita tale fase, quindi, si procederà all’appalto per l’assegnazione dei lavori e all’esecuzione degli stessi, che si concluderanno nel giro di quattro/cinque mesi."),
+    Poll(titlePoll: "Let’s cycle together on Calore!", imageNamePoll: "mensa", textPoll: "Let us know your thoughts about a brand new public pool to be built in the southern area of the city. The new pool will allow the citiens to practise sports and swimming at discounted fees. Works would start on June 2022 and would be ended in January 2023.Building costs would be 80.000 euros ca.", remainingTime: "15h 30m", progressBar: 92, numberVotes: 15000),
+    Poll(titlePoll: "Let’s get the city closer!", imageNamePoll: "mensa", textPoll: "", remainingTime: "1d 20h 10m", progressBar: 60, numberVotes: 8000)
 ]
 
 var pollsExpired = [
-    Poll(title:"01/10/21", subTitle:"Nuovo ponte sul torrente Epitaffio,a breve l’appalto per l’assegnazione dei lavori", date:"", imageName:"ponteepitaffio", testo: "L’Ufficio Espropri, con riferimento ai lavori di realizzazione del nuovo ponte sul torrente Epitaffio (che collega la via Appia con la chiesa di S. Anna), rende noto che lo scorso 23 settembre sono state avviate le azioni di presa di possesso dei terreni e che le suddette azioni si concluderanno la prossima settimana.Esaurita tale fase, quindi, si procederà all’appalto per l’assegnazione dei lavori e all’esecuzione degli stessi, che si concluderanno nel giro di quattro/cinque mesi."),
+    Poll(titlePoll: "Historic Centre revaluation plan", imageNamePoll: "historicCentre", textPoll: "Let us know your thoughts about a new revaluation plan for our Historic Town Centre. The building will safely be demolished and rebuilt, in order to relaunch tourism. Works would start on August 2022 and would be ended in June 2023.Building costs would be 360.000 euros ca.", remainingTime: "Expired", progressBar: 100, numberVotes: 20000),
+    Poll(titlePoll: "A new public pool for our town!", imageNamePoll: "pool", textPoll: "Let us know your thoughts about a brand new public pool to be built in the southern area of the city. The new pool will allow the citiens to practise sports and swimming at discounted fees. Works would start on June 2022 and would be ended in January 2023.Building costs would be 80.000 euros ca.", remainingTime: "Expired", progressBar: 30, numberVotes: 4000)
 ]
 
 var pollsVoted = [
-    Poll(title:"01/10/21", subTitle:"Nuovo ponte sul torrente Epitaffio,a breve l’appalto per l’assegnazione dei lavori", date:"", imageName:"ponteepitaffio", testo: "L’Ufficio Espropri, con riferimento ai lavori di realizzazione del nuovo ponte sul torrente Epitaffio (che collega la via Appia con la chiesa di S. Anna), rende noto che lo scorso 23 settembre sono state avviate le azioni di presa di possesso dei terreni e che le suddette azioni si concluderanno la prossima settimana.Esaurita tale fase, quindi, si procederà all’appalto per l’assegnazione dei lavori e all’esecuzione degli stessi, che si concluderanno nel giro di quattro/cinque mesi."),
+    Poll(titlePoll: "A new public pool for our town!", imageNamePoll: "pool", textPoll: "Let us know your thoughts about a brand new public pool to be built in the southern area of the city. The new pool will allow the citiens to practise sports and swimming at discounted fees. Works would start on June 2022 and would be ended in January 2023.Building costs would be 80.000 euros ca.", remainingTime: "Expired", progressBar: 30, numberVotes: 4000)
 ]
+
+//var user:String = "giodv28"
+//var password:String = "mypassword"
+
+var user:String = ""
+var password:String = ""
+
 
 
 struct PollsUIView: View {
@@ -39,7 +49,7 @@ struct PollsUIView: View {
         
         NavigationView{
             VStack {
-                           Picker("What is your favorite food?", selection: $pollsState) {
+                           Picker("", selection: $pollsState) {
                                Text("Ongoing").tag(0)
                                Text("Expired").tag(1)
                                Text("Voted").tag(2)
@@ -47,18 +57,49 @@ struct PollsUIView: View {
                            .pickerStyle(.segmented)
                            .padding(.horizontal)
                        if pollsState == 0 {
+                           if((user.isEmpty) && (password.isEmpty)){
                                ScrollView(.vertical, showsIndicators: false){
                                    VStack{
                                       Group{
                                           ForEach(searchResults) {pollOngoing in
-                                              CardViewOngoing(pollsOngoing: pollOngoing)
-                                               /*NavigationLink(destination: DetailView(titleDetail: pollsOngoing.subTitle, testoCompleto: pollsOngoing.testo, imageDetail: pollsOngoing.imageName)) {
-                                                   CardView2(pollsOngoing: pollsOngoing)*/
+                                              /*CardViewOngoing(pollsOngoing: pollOngoing)*/
+                                              NavigationLink(destination: OngoingDetailView(titleDetail: pollOngoing.titlePoll, testoCompleto: pollOngoing.textPoll , imageDetail: pollOngoing.imageNamePoll)) {
+                                                   CardViewOngoing(pollsOngoing: pollOngoing)
+                                                }
                                                }
                                            }
                                        }.frame(width: 350)
                                         .minimumScaleFactor(0.5)
                                    }
+                           }else{
+                               ScrollView(.vertical, showsIndicators: false){
+                                   VStack{
+                                      Group{
+                                          ForEach(searchResults) {pollOngoing in
+                                              /*CardViewOngoing(pollsOngoing: pollOngoing)*/
+                                              NavigationLink(destination: OngoingUserDetailView(/*pollsProva: self.pollsOngoing[pollOngoing],*/ titleDetail: pollOngoing.titlePoll, testoCompleto: pollOngoing.textPoll, imageDetail: pollOngoing.imageNamePoll)) {
+                                                   CardViewOngoing(pollsOngoing: pollOngoing)
+                                                }
+                                               }
+                                           }
+                                       }.frame(width: 350)
+                                        .minimumScaleFactor(0.5)
+                                   }
+                           }
+                           
+                               /*ScrollView(.vertical, showsIndicators: false){
+                                   VStack{
+                                      Group{
+                                          ForEach(searchResults) {pollOngoing in
+                                              /*CardViewOngoing(pollsOngoing: pollOngoing)*/
+                                               NavigationLink(destination: OngoingDetailView(titleDetail: pollOngoing.subTitle, testoCompleto: pollOngoing.testo, imageDetail: pollOngoing.imageName)) {
+                                                   CardViewOngoing(pollsOngoing: pollOngoing)
+                                                }
+                                               }
+                                           }
+                                       }.frame(width: 350)
+                                        .minimumScaleFactor(0.5)
+                                   }*/
                                    //Spacer()
                        }
                            else if pollsState == 1 {
@@ -99,7 +140,7 @@ struct PollsUIView: View {
             return pollsOngoing
         } else {
             return pollsOngoing.filter{(pollsOngoing: Poll) in
-                return pollsOngoing.subTitle.localizedCaseInsensitiveContains(searchText)
+                return pollsOngoing.titlePoll.localizedCaseInsensitiveContains(searchText)
                 
         }
     }
@@ -111,7 +152,7 @@ struct PollsUIView: View {
             return pollsExpired
         } else {
             return pollsExpired.filter{(pollsExpired: Poll) in
-                return pollsExpired.subTitle.localizedCaseInsensitiveContains(searchText)
+                return pollsExpired.titlePoll.localizedCaseInsensitiveContains(searchText)
                 
         }
     }
@@ -123,7 +164,7 @@ struct PollsUIView: View {
             return pollsVoted
         } else {
             return pollsVoted.filter{(pollsVoted: Poll) in
-                return pollsVoted.subTitle.localizedCaseInsensitiveContains(searchText)
+                return pollsVoted.titlePoll.localizedCaseInsensitiveContains(searchText)
                 
         }
     }
@@ -138,6 +179,111 @@ struct PollsUIView_Previews: PreviewProvider {
     }
 }
 
+struct OngoingDetailView: View {
+    var titleDetail: String
+    var testoCompleto: String
+    var imageDetail: String
+    //@Binding var indicePollsOngoing: Int
+    var body: some View {
+        ScrollView(.vertical, showsIndicators: false){
+            VStack{
+                Image(imageDetail)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(8)
+                    .padding()
+                Text(titleDetail)
+                    .font(.title)
+                    .fontWeight(.black)
+                    .foregroundColor(.primary)
+                    .padding()
+                Text(testoCompleto)
+                    .padding()
+                HStack{
+                    Button(action: {}) {
+                        Text("I agree")
+                    }
+                    .font(.system(size: 15, weight:.bold, design: .rounded))
+                    .padding(10)
+                    .background(Color.white)
+                    .cornerRadius(40)
+                    .shadow(radius: 1)
+                    .offset(x: -8, y: 0)
+                    
+                    
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("I disagree")
+                    }
+                    .font(.system(size: 15, weight:.bold, design: .rounded))
+                    .padding(10)
+                    .background(Color.white)
+                    .cornerRadius(40)
+                    .shadow(radius: 1)
+                    .offset(x: 8, y: 0)
+                }
+                Spacer()
+                
+            }
+            
+        }
+        
+    }
+}
+
+struct OngoingUserDetailView: View {
+    //@Binding var pollsProva: Poll
+    //@Binding var pollsProva: Int
+    var titleDetail: String
+    var testoCompleto: String
+    var imageDetail: String
+    //@Binding var indicePollsOngoing: Int
+    
+    var body: some View {
+        ScrollView(.vertical, showsIndicators: false){
+            VStack{
+                Image(imageDetail)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(8)
+                    .padding()
+                Text(titleDetail)
+                    .font(.title)
+                    .fontWeight(.black)
+                    .foregroundColor(.primary)
+                    .padding()
+                Text(testoCompleto)
+                    .padding()
+                HStack{
+                    Button(action: {}) {
+                        Text("I agree")
+                    }
+                    .font(.system(size: 15, weight:.bold, design: .rounded))
+                    .padding(10)
+                    .background(Color.white)
+                    .cornerRadius(40)
+                    .shadow(radius: 1)
+                    .offset(x: -8, y: 0)
+                    
+                    
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Text("I disagree")
+                    }
+                    .font(.system(size: 15, weight:.bold, design: .rounded))
+                    .padding(10)
+                    .background(Color.white)
+                    .cornerRadius(40)
+                    .shadow(radius: 1)
+                    .offset(x: 8, y: 0)
+                }
+                Spacer()
+                
+            }
+            
+        }
+        
+    }
+}
+
 struct CardViewOngoing: View {
     
     var pollsOngoing: Poll
@@ -145,12 +291,15 @@ struct CardViewOngoing: View {
     
         VStack{
             HStack{
-            Image(pollsOngoing.imageName)
+                Image(pollsOngoing.imageNamePoll)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                //.padding(.horizontal)
+                //.frame(width: 200, height: 100)
+                .cornerRadius(5)
+                .padding(5)
+                
                 VStack {
-                            ProgressView(value: 80.5, total: 100)
+                    ProgressView(value: pollsOngoing.progressBar, total: 100)
                         
                             .accentColor(Color.green)
                             .scaleEffect(x: 1, y: 4, anchor: .center)
@@ -158,12 +307,15 @@ struct CardViewOngoing: View {
                             .padding(.horizontal)
                           
                             
-                    Text("cvdvd")
+                    Text("\(pollsOngoing.numberVotes) people already voted")
+                        .font(.system(size: 10, weight:.bold, design: .rounded))
+                        .foregroundColor(.black)
                         .padding(5)
                     HStack{
                         Image(systemName: "clock")
                             .foregroundColor(.red)
-                        Text("- 3d 20h")
+                        Text(pollsOngoing.remainingTime)
+                            .foregroundColor(.black)
                             
                     }
                     
@@ -177,22 +329,12 @@ struct CardViewOngoing: View {
             }
         HStack{
             VStack(alignment: .leading){
-                Text(pollsOngoing.title)
-                    .font(.headline)
-                    .foregroundColor(.gray)
-                    .multilineTextAlignment(.leading)
-                Text(pollsOngoing.subTitle)
+                Text(pollsOngoing.titlePoll)
                     .font(.title)
                     .fontWeight(.black)
                     .foregroundColor(.primary)
                     .lineLimit(3)
                     .multilineTextAlignment(.leading)
-                Text(pollsOngoing.date)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.leading)
-                
-               
             }
             Spacer()
         }.padding()
@@ -211,12 +353,14 @@ struct CardViewExpired: View {
     
         VStack{
             HStack{
-            Image(pollsExpired.imageName)
+                Image(pollsExpired.imageNamePoll)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .cornerRadius(5)
+                .padding(5)
                 //.padding(.horizontal)
                 VStack {
-                            ProgressView(value: 80.5, total: 100)
+                    ProgressView(value: pollsExpired.progressBar, total: 100)
                         
                             .accentColor(Color.green)
                             .scaleEffect(x: 1, y: 4, anchor: .center)
@@ -224,12 +368,15 @@ struct CardViewExpired: View {
                             .padding(.horizontal)
                           
                             
-                    Text("cvdvd")
+                    Text("\(pollsExpired.numberVotes) people already voted")
+                        .font(.system(size: 10, weight:.bold, design: .rounded))
+                        .foregroundColor(.black)
                         .padding(5)
                     HStack{
                         Image(systemName: "clock")
                             .foregroundColor(.red)
-                        Text("- 3d 20h")
+                        Text(pollsExpired.remainingTime)
+                            .foregroundColor(.black)
                             
                     }
                     
@@ -243,21 +390,12 @@ struct CardViewExpired: View {
             }
         HStack{
             VStack(alignment: .leading){
-                Text(pollsExpired.title)
-                    .font(.headline)
-                    .foregroundColor(.gray)
-                    .multilineTextAlignment(.leading)
-                Text(pollsExpired.subTitle)
+                Text(pollsExpired.titlePoll)
                     .font(.title)
                     .fontWeight(.black)
                     .foregroundColor(.primary)
                     .lineLimit(3)
                     .multilineTextAlignment(.leading)
-                Text(pollsExpired.date)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.leading)
-                
                
             }
             Spacer()
@@ -279,12 +417,14 @@ struct CardViewVoted: View {
     
         VStack{
             HStack{
-            Image(pollsVoted.imageName)
+                Image(pollsVoted.imageNamePoll)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .cornerRadius(5)
+                .padding(5)
                 //.padding(.horizontal)
                 VStack {
-                            ProgressView(value: 80.5, total: 100)
+                    ProgressView(value: pollsVoted.progressBar, total: 100)
                         
                             .accentColor(Color.green)
                             .scaleEffect(x: 1, y: 4, anchor: .center)
@@ -292,12 +432,15 @@ struct CardViewVoted: View {
                             .padding(.horizontal)
                           
                             
-                    Text("cvdvd")
+                    Text("\(pollsVoted.numberVotes) people already voted")
+                        .font(.system(size: 10, weight:.bold, design: .rounded))
+                        .foregroundColor(.black)
                         .padding(5)
                     HStack{
                         Image(systemName: "clock")
                             .foregroundColor(.red)
-                        Text("- 3d 20h")
+                        Text(pollsVoted.remainingTime)
+                            .foregroundColor(.black)
                             
                     }
                     
@@ -311,22 +454,12 @@ struct CardViewVoted: View {
             }
         HStack{
             VStack(alignment: .leading){
-                Text(pollsVoted.title)
-                    .font(.headline)
-                    .foregroundColor(.gray)
-                    .multilineTextAlignment(.leading)
-                Text(pollsVoted.subTitle)
+                Text(pollsVoted.titlePoll)
                     .font(.title)
                     .fontWeight(.black)
                     .foregroundColor(.primary)
                     .lineLimit(3)
                     .multilineTextAlignment(.leading)
-                Text(pollsVoted.date)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .multilineTextAlignment(.leading)
-                
-               
             }
             Spacer()
         }.padding()
@@ -338,6 +471,4 @@ struct CardViewVoted: View {
             .padding([.top, .vertical ])
     }
 }
-
-
 

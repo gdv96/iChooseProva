@@ -16,6 +16,7 @@
 		FBA7E9392717271A00F6C4A5 /* TabUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E9382717271A00F6C4A5 /* TabUIView.swift */; };
 		FBA7E93B2717385D00F6C4A5 /* DetailUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E93A2717385D00F6C4A5 /* DetailUIView.swift */; };
 		FBBBFE63271D5D9400B019EB /* PollsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBFE62271D5D9400B019EB /* PollsUIView.swift */; };
+		FBBBFE65271EAC4E00B019EB /* OngoingDatailUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBFE64271EAC4E00B019EB /* OngoingDatailUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		FBA7E9382717271A00F6C4A5 /* TabUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabUIView.swift; sourceTree = "<group>"; };
 		FBA7E93A2717385D00F6C4A5 /* DetailUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUIView.swift; sourceTree = "<group>"; };
 		FBBBFE62271D5D9400B019EB /* PollsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsUIView.swift; sourceTree = "<group>"; };
+		FBBBFE64271EAC4E00B019EB /* OngoingDatailUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingDatailUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			isa = PBXGroup;
 			children = (
 				FBBBFE62271D5D9400B019EB /* PollsUIView.swift */,
+				FBBBFE64271EAC4E00B019EB /* OngoingDatailUIView.swift */,
 				FBA7E92727171F7200F6C4A5 /* iChooseProva */,
 				FBA7E92627171F7200F6C4A5 /* Products */,
 			);
@@ -157,6 +160,7 @@
 				FBA3E006271996B9004DD1B0 /* PresentationUIView.swift in Sources */,
 				FBA7E92927171F7200F6C4A5 /* iChooseProvaApp.swift in Sources */,
 				FBBBFE63271D5D9400B019EB /* PollsUIView.swift in Sources */,
+				FBBBFE65271EAC4E00B019EB /* OngoingDatailUIView.swift in Sources */,
 				FBA7E9392717271A00F6C4A5 /* TabUIView.swift in Sources */,
 				FBA7E93727171FC400F6C4A5 /* NewsUIView.swift in Sources */,
 			);
