@@ -1,46 +1,40 @@
 //
-//  OngoingDatailUIView.swift
+//  ExpiredDetailUIView.swift
 //  iChooseProva
 //
-//  Created by devannogiovanni on 19/10/21.
+//  Created by devannogiovanni on 20/10/21.
 //
 
-/*import SwiftUI
+import SwiftUI
 
-struct OngoingDatailUIView: View {
-    
-    var pollOngoigng: Poll
-    
-    var titleDetail: String
-    var testoCompleto: String
-    var imageDetail: String
-    
+struct ExpiredDetailUIView: View {
+    var poll: Poll
     var body: some View {
-        
         ScrollView(.vertical, showsIndicators: false){
             VStack{
-                Image(imageDetail)
+                Image(poll.imageNamePoll)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(8)
                     .padding()
-                Text(titleDetail)
+                Text(poll.titlePoll)
                     .font(.title)
                     .fontWeight(.black)
                     .foregroundColor(.primary)
                     .padding()
-                Text(testoCompleto)
+                Text(poll.textPoll)
                     .padding()
                 Spacer()
                 
             }
             
         }
+        
     }
 }
 
-struct OngoingDatailUIView_Previews: PreviewProvider {
+struct ExpiredDetailUIView_Previews: PreviewProvider {
     static var previews: some View {
-        OngoingDatailUIView(pollOngoigng: Poll, titleDetail: "", testoCompleto: "", imageDetail: "")
+        ExpiredDetailUIView(poll: Poll(titlePoll: "prova", imageNamePoll: "mensa", textPoll: "", remainingTime:"", progressBar: 100, numberVotes: 10000, typePoll: 1))
     }
-}*/
+}

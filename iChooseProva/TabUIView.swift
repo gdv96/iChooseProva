@@ -33,7 +33,7 @@ struct TabUIView: View {
                     Image(systemName: "newspaper")
                     Text("News")
                 }
-                    }
+        }
     }
     
 }

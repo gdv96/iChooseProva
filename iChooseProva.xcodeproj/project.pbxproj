@@ -7,20 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FBA3E006271996B9004DD1B0 /* PresentationUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA3E005271996B9004DD1B0 /* PresentationUIView.swift */; };
+		FB117FE9272009A400E19329 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FE8272009A400E19329 /* Singleton.swift */; };
+		FB117FED2720215C00E19329 /* OngoingDetailUserUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FEC2720215C00E19329 /* OngoingDetailUserUIView.swift */; };
+		FB117FEF2720224700E19329 /* OngoingDetailNotUserUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FEE2720224700E19329 /* OngoingDetailNotUserUIView.swift */; };
+		FB117FF12720248700E19329 /* ExpiredDetailUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FF02720248700E19329 /* ExpiredDetailUIView.swift */; };
+		FB117FF52720265700E19329 /* VotedDetailUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FF42720265700E19329 /* VotedDetailUIView.swift */; };
 		FBA7E92927171F7200F6C4A5 /* iChooseProvaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */; };
 		FBA7E92B27171F7200F6C4A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E92A27171F7200F6C4A5 /* ContentView.swift */; };
 		FBA7E92D27171F7400F6C4A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBA7E92C27171F7400F6C4A5 /* Assets.xcassets */; };
 		FBA7E93027171F7400F6C4A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBA7E92F27171F7400F6C4A5 /* Preview Assets.xcassets */; };
 		FBA7E93727171FC400F6C4A5 /* NewsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E93627171FC400F6C4A5 /* NewsUIView.swift */; };
 		FBA7E9392717271A00F6C4A5 /* TabUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E9382717271A00F6C4A5 /* TabUIView.swift */; };
-		FBA7E93B2717385D00F6C4A5 /* DetailUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E93A2717385D00F6C4A5 /* DetailUIView.swift */; };
 		FBBBFE63271D5D9400B019EB /* PollsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBFE62271D5D9400B019EB /* PollsUIView.swift */; };
-		FBBBFE65271EAC4E00B019EB /* OngoingDatailUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBBFE64271EAC4E00B019EB /* OngoingDatailUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FBA3E005271996B9004DD1B0 /* PresentationUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationUIView.swift; sourceTree = "<group>"; };
+		FB117FE8272009A400E19329 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
+		FB117FEC2720215C00E19329 /* OngoingDetailUserUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingDetailUserUIView.swift; sourceTree = "<group>"; };
+		FB117FEE2720224700E19329 /* OngoingDetailNotUserUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingDetailNotUserUIView.swift; sourceTree = "<group>"; };
+		FB117FF02720248700E19329 /* ExpiredDetailUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiredDetailUIView.swift; sourceTree = "<group>"; };
+		FB117FF42720265700E19329 /* VotedDetailUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotedDetailUIView.swift; sourceTree = "<group>"; };
 		FBA7E92527171F7200F6C4A5 /* iChooseProva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChooseProva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iChooseProvaApp.swift; sourceTree = "<group>"; };
 		FBA7E92A27171F7200F6C4A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -28,9 +34,7 @@
 		FBA7E92F27171F7400F6C4A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FBA7E93627171FC400F6C4A5 /* NewsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUIView.swift; sourceTree = "<group>"; };
 		FBA7E9382717271A00F6C4A5 /* TabUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabUIView.swift; sourceTree = "<group>"; };
-		FBA7E93A2717385D00F6C4A5 /* DetailUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUIView.swift; sourceTree = "<group>"; };
 		FBBBFE62271D5D9400B019EB /* PollsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsUIView.swift; sourceTree = "<group>"; };
-		FBBBFE64271EAC4E00B019EB /* OngoingDatailUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingDatailUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,13 +68,15 @@
 			isa = PBXGroup;
 			children = (
 				FBBBFE62271D5D9400B019EB /* PollsUIView.swift */,
-				FBBBFE64271EAC4E00B019EB /* OngoingDatailUIView.swift */,
+				FB117FF02720248700E19329 /* ExpiredDetailUIView.swift */,
+				FB117FF42720265700E19329 /* VotedDetailUIView.swift */,
+				FB117FEE2720224700E19329 /* OngoingDetailNotUserUIView.swift */,
+				FB117FEC2720215C00E19329 /* OngoingDetailUserUIView.swift */,
+				FB117FE8272009A400E19329 /* Singleton.swift */,
 				FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */,
 				FBA7E92A27171F7200F6C4A5 /* ContentView.swift */,
 				FBA7E93627171FC400F6C4A5 /* NewsUIView.swift */,
-				FBA3E005271996B9004DD1B0 /* PresentationUIView.swift */,
 				FBA7E9382717271A00F6C4A5 /* TabUIView.swift */,
-				FBA7E93A2717385D00F6C4A5 /* DetailUIView.swift */,
 				FBA7E92C27171F7400F6C4A5 /* Assets.xcassets */,
 				FBA7E92E27171F7400F6C4A5 /* Preview Content */,
 			);
@@ -156,13 +162,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBA7E92B27171F7200F6C4A5 /* ContentView.swift in Sources */,
-				FBA7E93B2717385D00F6C4A5 /* DetailUIView.swift in Sources */,
-				FBA3E006271996B9004DD1B0 /* PresentationUIView.swift in Sources */,
+				FB117FE9272009A400E19329 /* Singleton.swift in Sources */,
+				FB117FF12720248700E19329 /* ExpiredDetailUIView.swift in Sources */,
+				FB117FF52720265700E19329 /* VotedDetailUIView.swift in Sources */,
 				FBA7E92927171F7200F6C4A5 /* iChooseProvaApp.swift in Sources */,
 				FBBBFE63271D5D9400B019EB /* PollsUIView.swift in Sources */,
-				FBBBFE65271EAC4E00B019EB /* OngoingDatailUIView.swift in Sources */,
 				FBA7E9392717271A00F6C4A5 /* TabUIView.swift in Sources */,
+				FB117FEF2720224700E19329 /* OngoingDetailNotUserUIView.swift in Sources */,
 				FBA7E93727171FC400F6C4A5 /* NewsUIView.swift in Sources */,
+				FB117FED2720215C00E19329 /* OngoingDetailUserUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

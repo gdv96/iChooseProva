@@ -14,36 +14,22 @@ struct Poll: Identifiable{
     var remainingTime: String
     var progressBar: Float
     var numberVotes: Int
+    var typePoll: Int
     var id = UUID()
 }
 
-var pollsOngoing = [
-    Poll(titlePoll: "Let’s cycle together on Calore!", imageNamePoll: "mensa", textPoll: "Let us know your thoughts about a brand new public pool to be built in the southern area of the city. The new pool will allow the citiens to practise sports and swimming at discounted fees. Works would start on June 2022 and would be ended in January 2023.Building costs would be 80.000 euros ca.", remainingTime: "15h 30m", progressBar: 92, numberVotes: 15000),
-    Poll(titlePoll: "Let’s get the city closer!", imageNamePoll: "mensa", textPoll: "", remainingTime: "1d 20h 10m", progressBar: 60, numberVotes: 8000)
-]
+var user:String = "giodv28"
+var password:String = "mypassword"
 
-var pollsExpired = [
-    Poll(titlePoll: "Historic Centre revaluation plan", imageNamePoll: "historicCentre", textPoll: "Let us know your thoughts about a new revaluation plan for our Historic Town Centre. The building will safely be demolished and rebuilt, in order to relaunch tourism. Works would start on August 2022 and would be ended in June 2023.Building costs would be 360.000 euros ca.", remainingTime: "Expired", progressBar: 100, numberVotes: 20000),
-    Poll(titlePoll: "A new public pool for our town!", imageNamePoll: "pool", textPoll: "Let us know your thoughts about a brand new public pool to be built in the southern area of the city. The new pool will allow the citiens to practise sports and swimming at discounted fees. Works would start on June 2022 and would be ended in January 2023.Building costs would be 80.000 euros ca.", remainingTime: "Expired", progressBar: 30, numberVotes: 4000)
-]
-
-var pollsVoted = [
-    Poll(titlePoll: "A new public pool for our town!", imageNamePoll: "pool", textPoll: "Let us know your thoughts about a brand new public pool to be built in the southern area of the city. The new pool will allow the citiens to practise sports and swimming at discounted fees. Works would start on June 2022 and would be ended in January 2023.Building costs would be 80.000 euros ca.", remainingTime: "Expired", progressBar: 30, numberVotes: 4000)
-]
-
-//var user:String = "giodv28"
-//var password:String = "mypassword"
-
-var user:String = ""
-var password:String = ""
-
-
+//var user:String = ""
+//var password:String = ""
 
 struct PollsUIView: View {
        @State private var speed = 50.0
        @State private var isEditing = false
        @State private var pollsState = 0
        @State private var searchText = ""
+       @ObservedObject private var appPoll = Singleton.shared
     
     var body: some View {
         
@@ -62,8 +48,7 @@ struct PollsUIView: View {
                                    VStack{
                                       Group{
                                           ForEach(searchResults) {pollOngoing in
-                                              /*CardViewOngoing(pollsOngoing: pollOngoing)*/
-                                              NavigationLink(destination: OngoingDetailView(titleDetail: pollOngoing.titlePoll, testoCompleto: pollOngoing.textPoll , imageDetail: pollOngoing.imageNamePoll)) {
+                                              NavigationLink(destination: OngoingDetailNotUserUIView(poll: pollOngoing)) {
                                                    CardViewOngoing(pollsOngoing: pollOngoing)
                                                 }
                                                }
@@ -76,8 +61,7 @@ struct PollsUIView: View {
                                    VStack{
                                       Group{
                                           ForEach(searchResults) {pollOngoing in
-                                              /*CardViewOngoing(pollsOngoing: pollOngoing)*/
-                                              NavigationLink(destination: OngoingUserDetailView(/*pollsProva: self.pollsOngoing[pollOngoing],*/ titleDetail: pollOngoing.titlePoll, testoCompleto: pollOngoing.textPoll, imageDetail: pollOngoing.imageNamePoll)) {
+                                              NavigationLink(destination:OngoingDetailUserUIView(poll: pollOngoing)) {
                                                    CardViewOngoing(pollsOngoing: pollOngoing)
                                                 }
                                                }
@@ -87,29 +71,15 @@ struct PollsUIView: View {
                                    }
                            }
                            
-                               /*ScrollView(.vertical, showsIndicators: false){
-                                   VStack{
-                                      Group{
-                                          ForEach(searchResults) {pollOngoing in
-                                              /*CardViewOngoing(pollsOngoing: pollOngoing)*/
-                                               NavigationLink(destination: OngoingDetailView(titleDetail: pollOngoing.subTitle, testoCompleto: pollOngoing.testo, imageDetail: pollOngoing.imageName)) {
-                                                   CardViewOngoing(pollsOngoing: pollOngoing)
-                                                }
-                                               }
-                                           }
-                                       }.frame(width: 350)
-                                        .minimumScaleFactor(0.5)
-                                   }*/
-                                   //Spacer()
                        }
                            else if pollsState == 1 {
                                ScrollView(.vertical, showsIndicators: false){
                                    VStack{
                                       Group{
                                           ForEach(searchResults2) {pollExpired in
-                                              CardViewExpired(pollsExpired: pollExpired)
-                                               /*NavigationLink(destination: DetailView(titleDetail: pollsOngoing.subTitle, testoCompleto: pollsOngoing.testo, imageDetail: pollsOngoing.imageName)) {
-                                                   CardView2(pollsOngoing: pollsOngoing)*/
+                                              NavigationLink(destination:ExpiredDetailUIView(poll: pollExpired)) {
+                                                   CardViewExpired(pollsExpired: pollExpired)
+                                                }
                                                }
                                            }
                                        }.frame(width: 350)
@@ -120,9 +90,10 @@ struct PollsUIView: View {
                                    VStack{
                                       Group{
                                           ForEach(searchResults3) {pollVoted in
-                                              CardViewVoted(pollsVoted: pollVoted)
-                                               /*NavigationLink(destination: DetailView(titleDetail: pollsOngoing.subTitle, testoCompleto: pollsOngoing.testo, imageDetail: pollsOngoing.imageName)) {
-                                                   CardView2(pollsOngoing: pollsOngoing)*/
+                                              NavigationLink(destination:VotedDetailUIView(poll: pollVoted)) {
+                                                  CardViewVoted(pollsVoted: pollVoted)
+                                                }
+                                              
                                                }
                                            }
                                        }.frame(width: 350)
@@ -137,10 +108,10 @@ struct PollsUIView: View {
     
     var searchResults: [Poll]{
         if searchText.isEmpty{
-            return pollsOngoing
+            return appPoll.getOngoing()
         } else {
-            return pollsOngoing.filter{(pollsOngoing: Poll) in
-                return pollsOngoing.titlePoll.localizedCaseInsensitiveContains(searchText)
+            return appPoll.getOngoing().filter{(pollOngoing: Poll) in
+                return pollOngoing.titlePoll.localizedCaseInsensitiveContains(searchText)
                 
         }
     }
@@ -149,10 +120,10 @@ struct PollsUIView: View {
 
     var searchResults2: [Poll]{
         if searchText.isEmpty{
-            return pollsExpired
+            return appPoll.getExpired()
         } else {
-            return pollsExpired.filter{(pollsExpired: Poll) in
-                return pollsExpired.titlePoll.localizedCaseInsensitiveContains(searchText)
+            return appPoll.getExpired().filter{(pollExpired: Poll) in
+                return pollExpired.titlePoll.localizedCaseInsensitiveContains(searchText)
                 
         }
     }
@@ -161,17 +132,18 @@ struct PollsUIView: View {
     
     var searchResults3: [Poll]{
         if searchText.isEmpty{
-            return pollsVoted
+            return appPoll.getVoted()
         } else {
-            return pollsVoted.filter{(pollsVoted: Poll) in
-                return pollsVoted.titlePoll.localizedCaseInsensitiveContains(searchText)
+            return appPoll.getVoted().filter{(pollVoted: Poll) in
+                return pollVoted.titlePoll.localizedCaseInsensitiveContains(searchText)
                 
         }
     }
         
    }
+    
+    
 }
-
 
 struct PollsUIView_Previews: PreviewProvider {
     static var previews: some View {
@@ -179,110 +151,7 @@ struct PollsUIView_Previews: PreviewProvider {
     }
 }
 
-struct OngoingDetailView: View {
-    var titleDetail: String
-    var testoCompleto: String
-    var imageDetail: String
-    //@Binding var indicePollsOngoing: Int
-    var body: some View {
-        ScrollView(.vertical, showsIndicators: false){
-            VStack{
-                Image(imageDetail)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(8)
-                    .padding()
-                Text(titleDetail)
-                    .font(.title)
-                    .fontWeight(.black)
-                    .foregroundColor(.primary)
-                    .padding()
-                Text(testoCompleto)
-                    .padding()
-                HStack{
-                    Button(action: {}) {
-                        Text("I agree")
-                    }
-                    .font(.system(size: 15, weight:.bold, design: .rounded))
-                    .padding(10)
-                    .background(Color.white)
-                    .cornerRadius(40)
-                    .shadow(radius: 1)
-                    .offset(x: -8, y: 0)
-                    
-                    
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        Text("I disagree")
-                    }
-                    .font(.system(size: 15, weight:.bold, design: .rounded))
-                    .padding(10)
-                    .background(Color.white)
-                    .cornerRadius(40)
-                    .shadow(radius: 1)
-                    .offset(x: 8, y: 0)
-                }
-                Spacer()
-                
-            }
-            
-        }
-        
-    }
-}
-
-struct OngoingUserDetailView: View {
-    //@Binding var pollsProva: Poll
-    //@Binding var pollsProva: Int
-    var titleDetail: String
-    var testoCompleto: String
-    var imageDetail: String
-    //@Binding var indicePollsOngoing: Int
-    
-    var body: some View {
-        ScrollView(.vertical, showsIndicators: false){
-            VStack{
-                Image(imageDetail)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .cornerRadius(8)
-                    .padding()
-                Text(titleDetail)
-                    .font(.title)
-                    .fontWeight(.black)
-                    .foregroundColor(.primary)
-                    .padding()
-                Text(testoCompleto)
-                    .padding()
-                HStack{
-                    Button(action: {}) {
-                        Text("I agree")
-                    }
-                    .font(.system(size: 15, weight:.bold, design: .rounded))
-                    .padding(10)
-                    .background(Color.white)
-                    .cornerRadius(40)
-                    .shadow(radius: 1)
-                    .offset(x: -8, y: 0)
-                    
-                    
-                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                        Text("I disagree")
-                    }
-                    .font(.system(size: 15, weight:.bold, design: .rounded))
-                    .padding(10)
-                    .background(Color.white)
-                    .cornerRadius(40)
-                    .shadow(radius: 1)
-                    .offset(x: 8, y: 0)
-                }
-                Spacer()
-                
-            }
-            
-        }
-        
-    }
-}
+//-----------------------------CardView------------------------------------
 
 struct CardViewOngoing: View {
     
