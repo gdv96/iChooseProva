@@ -16,6 +16,7 @@
 		FB117FF92720AC6E00E19329 /* CardViewExpiredUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FF82720AC6E00E19329 /* CardViewExpiredUIView.swift */; };
 		FB117FFB2720ADA900E19329 /* CardViewVotedUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FFA2720ADA900E19329 /* CardViewVotedUIView.swift */; };
 		FB117FFD2720B01000E19329 /* CardViewNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FFC2720B01000E19329 /* CardViewNews.swift */; };
+		FB117FFF2720B0E200E19329 /* DetailNewsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FFE2720B0E200E19329 /* DetailNewsUIView.swift */; };
 		FBA7E92927171F7200F6C4A5 /* iChooseProvaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */; };
 		FBA7E92B27171F7200F6C4A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E92A27171F7200F6C4A5 /* ContentView.swift */; };
 		FBA7E92D27171F7400F6C4A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBA7E92C27171F7400F6C4A5 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		FB117FF82720AC6E00E19329 /* CardViewExpiredUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewExpiredUIView.swift; sourceTree = "<group>"; };
 		FB117FFA2720ADA900E19329 /* CardViewVotedUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewVotedUIView.swift; sourceTree = "<group>"; };
 		FB117FFC2720B01000E19329 /* CardViewNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewNews.swift; sourceTree = "<group>"; };
+		FB117FFE2720B0E200E19329 /* DetailNewsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsUIView.swift; sourceTree = "<group>"; };
 		FBA7E92527171F7200F6C4A5 /* iChooseProva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChooseProva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iChooseProvaApp.swift; sourceTree = "<group>"; };
 		FBA7E92A27171F7200F6C4A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */,
 				FBA7E92A27171F7200F6C4A5 /* ContentView.swift */,
 				FBA7E93627171FC400F6C4A5 /* NewsUIView.swift */,
+				FB117FFE2720B0E200E19329 /* DetailNewsUIView.swift */,
 				FB117FFC2720B01000E19329 /* CardViewNews.swift */,
 				FBA7E9382717271A00F6C4A5 /* TabUIView.swift */,
 				FBA7E92C27171F7400F6C4A5 /* Assets.xcassets */,
@@ -177,6 +180,7 @@
 				FB117FF92720AC6E00E19329 /* CardViewExpiredUIView.swift in Sources */,
 				FB117FE9272009A400E19329 /* Singleton.swift in Sources */,
 				FB117FF12720248700E19329 /* ExpiredDetailUIView.swift in Sources */,
+				FB117FFF2720B0E200E19329 /* DetailNewsUIView.swift in Sources */,
 				FB117FF52720265700E19329 /* VotedDetailUIView.swift in Sources */,
 				FB117FFD2720B01000E19329 /* CardViewNews.swift in Sources */,
 				FBA7E92927171F7200F6C4A5 /* iChooseProvaApp.swift in Sources */,

@@ -33,9 +33,9 @@ struct NewsUIView: View {
                 ScrollView(.vertical, showsIndicators: false){
                     VStack{
                        Group{
-                            ForEach(searchResults) {cardsnews in
-                                NavigationLink(destination: DetailView(titleDetail: cardsnews.subTitle, testoCompleto: cardsnews.testo, imageDetail: cardsnews.imageName)) {
-                                    CardViewNews(cardsnews: cardsnews)
+                            ForEach(searchResults) {news in
+                                NavigationLink(destination: DetailNewsUIView(news: news)) {
+                                    CardViewNews(cardsnews: news)
                                 }
                             
                             }
@@ -75,26 +75,22 @@ struct NewsUIView_Previews: PreviewProvider {
     }
 }
 
-struct DetailView: View {
-    var titleDetail: String
-    var testoCompleto: String
-    var imageDetail: String
-    //var cardsnews: cardNews
+/*struct DetailView: View {
+    var news: cardNews
     var body: some View {
-        //Text(cardsnews.testo)
         ScrollView(.vertical, showsIndicators: false){
             VStack{
-                Image(imageDetail)
+                Image(news.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(8)
                     .padding()
-                Text(titleDetail)
+                Text(news.subTitle)
                     .font(.title)
                     .fontWeight(.black)
                     .foregroundColor(.primary)
                     .padding()
-                Text(testoCompleto)
+                Text(news.testo)
                     .padding()
                 Spacer()
                 
@@ -103,7 +99,7 @@ struct DetailView: View {
         }
         
     }
-}
+}*/
 
 /*struct CardView: View {
     
