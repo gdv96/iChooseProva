@@ -35,7 +35,7 @@ struct NewsUIView: View {
                        Group{
                             ForEach(searchResults) {cardsnews in
                                 NavigationLink(destination: DetailView(titleDetail: cardsnews.subTitle, testoCompleto: cardsnews.testo, imageDetail: cardsnews.imageName)) {
-                                    CardView(cardsnews: cardsnews)
+                                    CardViewNews(cardsnews: cardsnews)
                                 }
                             
                             }
@@ -105,7 +105,7 @@ struct DetailView: View {
     }
 }
 
-struct CardView: View {
+/*struct CardView: View {
     
     var cardsnews: cardNews
     var body: some View {
@@ -140,4 +140,4 @@ struct CardView: View {
                         .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 5))
             .padding([.top, .vertical ])
     }
-}
+}*/
