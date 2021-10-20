@@ -78,7 +78,7 @@ struct PollsUIView: View {
                                       Group{
                                           ForEach(searchResults2) {pollExpired in
                                               NavigationLink(destination:ExpiredDetailUIView(poll: pollExpired)) {
-                                                   CardViewExpired(pollsExpired: pollExpired)
+                                                  CardViewExpiredUIView(pollsExpired: pollExpired)
                                                 }
                                                }
                                            }
@@ -91,7 +91,7 @@ struct PollsUIView: View {
                                       Group{
                                           ForEach(searchResults3) {pollVoted in
                                               NavigationLink(destination:VotedDetailUIView(poll: pollVoted)) {
-                                                  CardViewVoted(pollsVoted: pollVoted)
+                                                  CardViewVotedUIView(pollsVoted: pollVoted)
                                                 }
                                               
                                                }
@@ -215,7 +215,7 @@ struct PollsUIView_Previews: PreviewProvider {
     }
 }*/
 
-struct CardViewExpired: View {
+/*struct CardViewExpired: View {
     
     var pollsExpired: Poll
     var body: some View {
@@ -276,10 +276,10 @@ struct CardViewExpired: View {
             .padding([.top, .vertical ])
             
     }
-}
+}*/
 
 
-struct CardViewVoted: View {
+/*struct CardViewVoted: View {
     
     var pollsVoted: Poll
     var body: some View {
@@ -339,5 +339,5 @@ struct CardViewVoted: View {
                         .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 5))
             .padding([.top, .vertical ])
     }
-}
+}*/
 
