@@ -6,9 +6,10 @@
 //
 
 import Foundation
-class Singleton: ObservableObject {
-    static var shared: Singleton = {
-        let instance = Singleton()
+
+class PollMemory: ObservableObject {
+    static var shared: PollMemory = {
+        let instance = PollMemory()
         return instance
     }()
     
@@ -43,7 +44,6 @@ class Singleton: ObservableObject {
         
     }
     
-    //@Published var voto: String = ""
     
     @Published var polls = [
         Poll(titlePoll: "Let’s cycle together on Calore!", imageNamePoll: "pistaCiclabile", textPoll: "Let us know your thoughts about a brand new public pool to be built in the southern area of the city. The new pool will allow the citiens to practise sports and swimming at discounted fees. Works would start on June 2022 and would be ended in January 2023.Building costs would be 80.000 euros ca.", remainingTime: "15h 30m", progressBar: 92, numberVotes: 15000, typePoll: 1),

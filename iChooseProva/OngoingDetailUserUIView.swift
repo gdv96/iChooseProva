@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OngoingDetailUserUIView: View {
     var poll: Poll
-    @ObservedObject private var appPoll = Singleton.shared
+    @ObservedObject private var appPoll = PollMemory.shared
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             VStack{

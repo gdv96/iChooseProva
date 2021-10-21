@@ -29,7 +29,7 @@ struct PollsUIView: View {
        @State private var isEditing = false
        @State private var pollsState = 0
        @State private var searchText = ""
-       @ObservedObject private var appPoll = Singleton.shared
+       @ObservedObject private var appPoll = PollMemory.shared
     
     var body: some View {
         

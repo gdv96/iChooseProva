@@ -17,6 +17,7 @@
 		FB117FFD2720B01000E19329 /* CardViewNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FFC2720B01000E19329 /* CardViewNews.swift */; };
 		FB117FFF2720B0E200E19329 /* DetailNewsUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FFE2720B0E200E19329 /* DetailNewsUIView.swift */; };
 		FB2228C727214F12007062D8 /* PollMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2228C627214F12007062D8 /* PollMemory.swift */; };
+		FB3BD0112721561800247239 /* NewsMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3BD0102721561800247239 /* NewsMemory.swift */; };
 		FBA7E92927171F7200F6C4A5 /* iChooseProvaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */; };
 		FBA7E92B27171F7200F6C4A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA7E92A27171F7200F6C4A5 /* ContentView.swift */; };
 		FBA7E92D27171F7400F6C4A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBA7E92C27171F7400F6C4A5 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 		FB117FFC2720B01000E19329 /* CardViewNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewNews.swift; sourceTree = "<group>"; };
 		FB117FFE2720B0E200E19329 /* DetailNewsUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsUIView.swift; sourceTree = "<group>"; };
 		FB2228C627214F12007062D8 /* PollMemory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollMemory.swift; sourceTree = "<group>"; };
+		FB3BD0102721561800247239 /* NewsMemory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsMemory.swift; sourceTree = "<group>"; };
 		FBA7E92527171F7200F6C4A5 /* iChooseProva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChooseProva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iChooseProvaApp.swift; sourceTree = "<group>"; };
 		FBA7E92A27171F7200F6C4A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				FB117FEE2720224700E19329 /* OngoingDetailNotUserUIView.swift */,
 				FB117FEC2720215C00E19329 /* OngoingDetailUserUIView.swift */,
 				FB2228C627214F12007062D8 /* PollMemory.swift */,
+				FB3BD0102721561800247239 /* NewsMemory.swift */,
 				FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */,
 				FBA7E92A27171F7200F6C4A5 /* ContentView.swift */,
 				FBA7E93627171FC400F6C4A5 /* NewsUIView.swift */,
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBA7E92B27171F7200F6C4A5 /* ContentView.swift in Sources */,
+				FB3BD0112721561800247239 /* NewsMemory.swift in Sources */,
 				FB117FF92720AC6E00E19329 /* CardViewExpiredUIView.swift in Sources */,
 				FB117FF12720248700E19329 /* ExpiredDetailUIView.swift in Sources */,
 				FB117FFF2720B0E200E19329 /* DetailNewsUIView.swift in Sources */,
