@@ -1,13 +1,12 @@
 //
-//  Singleton.swift
+//  PollMemory.swift
 //  iChooseProva
 //
-//  Created by devannogiovanni on 20/10/21.
+//  Created by devannogiovanni on 21/10/21.
 //
 
 import Foundation
-
-/*class Singleton: ObservableObject {
+class Singleton: ObservableObject {
     static var shared: Singleton = {
         let instance = Singleton()
         return instance
@@ -54,4 +53,4 @@ import Foundation
         
     ]
     
-}*/
+}
