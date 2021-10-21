@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB117FE9272009A400E19329 /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FE8272009A400E19329 /* Singleton.swift */; };
 		FB117FED2720215C00E19329 /* OngoingDetailUserUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FEC2720215C00E19329 /* OngoingDetailUserUIView.swift */; };
 		FB117FEF2720224700E19329 /* OngoingDetailNotUserUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FEE2720224700E19329 /* OngoingDetailNotUserUIView.swift */; };
 		FB117FF12720248700E19329 /* ExpiredDetailUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB117FF02720248700E19329 /* ExpiredDetailUIView.swift */; };
@@ -28,7 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FB117FE8272009A400E19329 /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		FB117FEC2720215C00E19329 /* OngoingDetailUserUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingDetailUserUIView.swift; sourceTree = "<group>"; };
 		FB117FEE2720224700E19329 /* OngoingDetailNotUserUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OngoingDetailNotUserUIView.swift; sourceTree = "<group>"; };
 		FB117FF02720248700E19329 /* ExpiredDetailUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiredDetailUIView.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 				FB117FF42720265700E19329 /* VotedDetailUIView.swift */,
 				FB117FEE2720224700E19329 /* OngoingDetailNotUserUIView.swift */,
 				FB117FEC2720215C00E19329 /* OngoingDetailUserUIView.swift */,
-				FB117FE8272009A400E19329 /* Singleton.swift */,
 				FB2228C627214F12007062D8 /* PollMemory.swift */,
 				FBA7E92827171F7200F6C4A5 /* iChooseProvaApp.swift */,
 				FBA7E92A27171F7200F6C4A5 /* ContentView.swift */,
@@ -181,7 +178,6 @@
 			files = (
 				FBA7E92B27171F7200F6C4A5 /* ContentView.swift in Sources */,
 				FB117FF92720AC6E00E19329 /* CardViewExpiredUIView.swift in Sources */,
-				FB117FE9272009A400E19329 /* Singleton.swift in Sources */,
 				FB117FF12720248700E19329 /* ExpiredDetailUIView.swift in Sources */,
 				FB117FFF2720B0E200E19329 /* DetailNewsUIView.swift in Sources */,
 				FB117FF52720265700E19329 /* VotedDetailUIView.swift in Sources */,
