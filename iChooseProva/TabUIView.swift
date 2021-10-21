@@ -24,7 +24,7 @@ struct TabUIView: View {
                 }
             PollsUIView()
                 .tabItem{
-                    Image(systemName: "star")
+                    Image("bottone1")
                     Text("Polls")
                 }
             
